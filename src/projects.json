@@ -16,5 +16,11 @@
     "image":"./img/yahtzee.png",
     "description":"Ett yahtzee spel i python, kan ta tid att ladda in hos render.com",
     "link":"https://yahtzee-app-wyap.onrender.com"
+  },
+  {
+    "name":"Tipsvänner",
+    "image":"./img/Tipsvänner.png",
+    "description":"Ett webbscrape projekt som hämtar veckans stryktips från svenska spel. Tänkt att hjälpa processen att spela och lägga stryktips tillsammans.",
+    "link":"https://johansvenssons.github.io/tipsV/"
   }
 ]
