@@ -3,16 +3,17 @@
 }
 
 html {
-  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  flex-basis: 100px;
-  flex-shrink: 1;
-  flex-grow: 1;
+  padding: 0;
+  min-height: 100vh;
 }
 
 .project-container {
@@ -22,13 +23,24 @@ body {
   justify-content: space-around;
   padding: 1rem;
   min-width: 100vw;
+  flex-grow: 1;
+  align-content: flex-start;
 }
 
 projects-component {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  flex-grow: 1;
   background-color: rgb(80, 79, 79);
   min-width: 100vw;
+  min-height: 100%;
+}
+
+landing-view {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
 }
 
 .project-card {
@@ -58,7 +70,7 @@ projects-component {
 }
 
 .project-card:hover {
-  box-shadow: 0 8px 32px rgb(78, 252, 44);
+  box-shadow: 0 8px 32px rgb(118, 175, 107);
 }
 
 .project-card h3 {
@@ -103,11 +115,10 @@ projects-component {
 }
 .main {
   display: flex;
+  flex-direction: column;
   background-color: #fff;
-  flex-basis: 200px;
   flex-grow: 1;
-  flex-shrink: 1;
-  height: 100%;
+  min-height: 0;
 }
 
 .top-header {
