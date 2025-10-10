@@ -2,17 +2,24 @@
   box-sizing: border-box;
 }
 
+html {
+  display: flex;
+}
+
 body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  flex-basis: 100px;
+  flex-shrink: 1;
+  flex-grow: 1;
 }
 
 .project-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  justify-content: flex-start;
+  justify-content: space-around;
   padding: 1rem;
   min-width: 100vw;
 }
@@ -25,7 +32,7 @@ projects-component {
 }
 
 .project-card {
-  flex: 0 1 300px;
+  flex: 1 1 300px;
   min-width: 280px;
   max-width: 400px;
   background-color: grey;
@@ -34,6 +41,7 @@ projects-component {
   grid-template-rows: auto auto 1fr; /* Title, image, info (flexible) */
   gap: 1rem;
   padding: 1.5rem;
+  border: 2px solid black;
 }
 .project-info {
   width: 100%;
@@ -56,6 +64,7 @@ projects-component {
 .project-card h3 {
   text-align: center;
   font-size: 1.3rem;
+  font-family: "Courier New", Courier, monospace;
   color: white;
   margin: 0;
 }
@@ -94,17 +103,18 @@ projects-component {
 }
 .main {
   display: flex;
-  padding: 0 1rem 1rem 0;
-  min-height: 100vh;
   background-color: #fff;
-  position: relative;
+  flex-basis: 200px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  height: 100%;
 }
 
 .top-header {
   display: flex;
   justify-content: space-between;
   gap: 50px;
-  background-color: #333;
+  background-color: rgb(105, 105, 105);
   color: white;
   align-items: center;
   min-width: 100vw;
@@ -118,6 +128,7 @@ projects-component {
   padding: 10px;
   justify-content: space-around;
   flex-wrap: nowrap;
+  font-family: "Courier New", Courier, monospace;
 }
 .left-H {
   display: flex;
@@ -125,17 +136,31 @@ projects-component {
   flex-shrink: 1;
   min-width: 70vw;
   padding: 10px;
+  font-size: 2rem;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .welcome {
   display: flex;
-  flex-basis: 40vw;
+  flex-basis: 50vh;
   flex-grow: 1;
   flex-shrink: 1;
   background-color: black;
   min-width: 100vw;
-  background-image: url("./img/backgrund.jpg");
+  background-image: linear-gradient(
+      to bottom,
+      rgba(128, 128, 128, 0.5),
+      rgba(128, 128, 128, 0.5)
+    ),
+    url("./img/backgrund.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: 2px solid black;
+}
+
+.footer {
+  text-align: center;
+  background-color: rgb(105, 105, 105);
+  color: #fff;
 }
