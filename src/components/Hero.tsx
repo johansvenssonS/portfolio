@@ -1,6 +1,9 @@
 import { ArrowDown, Code2, Sparkles } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -21,17 +24,17 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <Sparkles size={16} />
-            <span className="text-sm font-medium">Webbutvecklare & Designer</span>
+            <span className="text-sm font-medium">{t('hero.badge')}</span>
           </div>
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Johan Svensson
+            {t('hero.name')}
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl md:text-2xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            Skapar moderna och användarvänliga webbapplikationer med passion för ren kod och design.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
@@ -41,13 +44,13 @@ const Hero = () => {
               className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-accent transition-all duration-300 hover:shadow-lg hover:glow-primary"
             >
               <Code2 size={20} />
-              Se mina projekt
+              {t('hero.cta')}
             </button>
             <a
               href="#about"
               className="inline-flex items-center gap-2 px-8 py-4 bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/20 rounded-lg font-medium hover:bg-primary-foreground/20 transition-all duration-300"
             >
-              Om mig
+              {t('hero.about')}
             </a>
           </div>
         </div>
@@ -59,7 +62,7 @@ const Hero = () => {
             className="flex flex-col items-center gap-2 text-primary-foreground/60 hover:text-primary-foreground transition-colors"
             aria-label="Scroll to projects"
           >
-            <span className="text-sm">Scrolla ner</span>
+            <span className="text-sm">{t('hero.scroll')}</span>
             <ArrowDown size={20} className="animate-bounce" />
           </button>
         </div>

@@ -4,7 +4,7 @@ import yahtzeeImg from '@/assets/project-yahtzee.png';
 import tipsvannerImg from '@/assets/project-tipsvanner.png';
 import type { Project } from '@/types/project';
 
-export const projects: Project[] = [
+export const projectsSV: Project[] = [
   {
     name: "Tåg Förseningar",
     image: tagForseningarImg,
@@ -81,3 +81,83 @@ export const projects: Project[] = [
     learnings: "Lärde mig grunderna i backend-utveckling, hur man sätter upp och deployer API:er på Render.com, databashantering med Neon/PostgreSQL, web scraping-tekniker och hur man bygger fullstack-applikationer från grunden."
   }
 ];
+
+export const projectsEN: Project[] = [
+  {
+    name: "Train Delays",
+    image: tagForseningarImg,
+    description: "An application that tracks train delays using the Swedish Transport Administration API.",
+    link: "https://johansvenssons.github.io/webapp-project/",
+    github: "https://github.com/johansvenssonS/webapp-project",
+    detailedDescription: "A real-time application that displays train delays in Sweden by integrating with the Swedish Transport Administration's open API. The application implements user authentication and allows logged-in users to save their favorite stations for quick access.",
+    technologies: ["JavaScript", "CSS", "HTML", "Trafikverket API", "JWT", "Authentication"],
+    features: [
+      "Real-time data from the Swedish Transport Administration API",
+      "Search for train stations",
+      "Display delays and departure times",
+      "User authentication with JWT tokens",
+      "Save favorite stations for logged-in users",
+      "Responsive design for mobile and desktop"
+    ],
+    challenges: "The main challenge was to handle API calls efficiently, implement secure authentication with JWT tokens, and create a smooth flow for user management.",
+    learnings: "Learned to work with external APIs, handle asynchronous JavaScript, implement JWT-based authentication, and create responsive user interfaces with secure data handling."
+  },
+  {
+    name: "Spell Checker",
+    image: spellcheckerImg,
+    description: "A spell checking program in Python",
+    link: "https://www.student.bth.se/~josg24/dbwebb-kurser/oopython/me/kmom10/spellchecker/app.cgi",
+    github: "https://github.com/johansvenssonS/own-projects",
+    detailedDescription: "A web-based spell checker developed in Python that uses tree structures for efficient word storage and searching. Each letter is represented as a node in the tree with has_next attributes pointing forward in the structure, enabling fast word recognition and spelling suggestions.",
+    technologies: ["Python", "HTML", "CSS", "CGI", "Data Structures", "Tree Structures"],
+    features: [
+      "Check spelling in real-time",
+      "Efficient tree structure for word storage",
+      "Node-based data representation",
+      "Suggest corrections for misspelled words",
+      "Web-based interface"
+    ],
+    challenges: "Implementing an efficient tree structure where each letter is a node with has_next attributes, and traversing the tree to find words and generate spelling suggestions.",
+    learnings: "Deepened knowledge in data structures, especially tree structures and node management, text processing algorithms, and implementation of efficient search algorithms."
+  },
+  {
+    name: "Yahtzee",
+    image: yahtzeeImg,
+    description: "A Yahtzee game in Python, may take time to load on render.com",
+    link: "https://yahtzee-app-wyap.onrender.com",
+    github: "https://github.com/johansvenssonS/own-projects",
+    detailedDescription: "A fully functional Yahtzee game built in Python with a focus on object-oriented programming. The project demonstrates the use of classes, inheritance, and OOP principles to structure game logic, dice handling, and score calculation.",
+    technologies: ["Python", "HTML", "CSS", "JavaScript", "Flask", "OOP"],
+    features: [
+      "Complete Yahtzee rules implemented",
+      "Score calculation and highscore",
+      "Object-oriented architecture with classes and inheritance",
+      "Responsive game design",
+      "Deployed on Render.com"
+    ],
+    challenges: "Implementing the game logic correctly according to Yahtzee rules with object-oriented design, structuring classes with appropriate inheritance, and creating an intuitive user experience.",
+    learnings: "Developed advanced skills in object-oriented programming, class design, inheritance, and encapsulation. Learned to structure complex applications with OOP principles and deployment of Python applications."
+  },
+  {
+    name: "Betting Friends",
+    image: tipsvannerImg,
+    description: "A web scraping project that fetches the weekly football pools from Svenska Spel. Intended to help the process of playing and placing bets together.",
+    link: "https://johansvenssons.github.io/tipsV/",
+    github: "https://github.com/johansvenssonS/tipsV",
+    detailedDescription: "My first full-stack project with backend on Render.com and database on Neon. An automated service that uses web scraping to fetch football pools data from Svenska Spel. The project is still under development but has functional backend endpoints and database integration.",
+    technologies: ["JavaScript", "CSS", "HTML", "Node.js", "Render.com", "Neon Database", "PostgreSQL", "Web Scraping"],
+    features: [
+      "Backend API with endpoints on Render.com",
+      "Database on Neon (PostgreSQL)",
+      "Automatic fetching of football pools data",
+      "Web scraping from Svenska Spel",
+      "Create API endpoints",
+      "Display odds and matches",
+      "Project under development"
+    ],
+    challenges: "My first attempt to build a full-stack application with my own backend and database. Setting up endpoints on Render.com, integrating with Neon database, and building a robust web scraper were the biggest challenges.",
+    learnings: "Learned the basics of backend development, how to set up and deploy APIs on Render.com, database management with Neon/PostgreSQL, web scraping techniques, and how to build full-stack applications from scratch."
+  }
+];
+
+export const projects = projectsSV;
