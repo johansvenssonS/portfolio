@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { Project } from '@/types/project';
+import { projects as projectsData } from '@/data/projects';
 
 export const useProjects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -7,20 +8,14 @@ export const useProjects = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Simulating async fetch to preserve original logic pattern
     const getProjects = async () => {
       try {
-        // Preserving the original async fetch logic from project.js
-        const response = await fetch('/src/data/projects.json');
-        const result = await response.json();
-        setProjects(result);
+        // Small delay to simulate network request (preserving async pattern)
+        await new Promise(resolve => setTimeout(resolve, 100));
+        setProjects(projectsData);
       } catch (err) {
-        // Fallback to import if fetch fails (for Vite compatibility)
-        try {
-          const data = await import('@/data/projects.json');
-          setProjects(data.default);
-        } catch {
-          setError('Failed to load projects');
-        }
+        setError('Failed to load projects');
       } finally {
         setLoading(false);
       }
