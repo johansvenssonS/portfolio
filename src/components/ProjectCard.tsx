@@ -1,5 +1,7 @@
-import { ExternalLink } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import type { Project } from '@/types/project';
+import { getProjectSlug } from '@/types/project';
 
 interface ProjectCardProps {
   project: Project;
@@ -7,12 +9,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
-  // Preserving the original click handler logic from project.js
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const url = project.link; // Using data-link equivalent
-    window.open(url);
-  };
+  const projectSlug = getProjectSlug(project.name);
 
   return (
     <article
@@ -39,16 +36,31 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           {project.description}
         </p>
 
-        {/* Project Link - preserving data-link pattern as href */}
-        <a
-          href="#"
-          data-link={project.link}
-          onClick={handleClick}
+        {/* Tech preview badges */}
+        <div className="flex flex-wrap gap-1.5">
+          {project.technologies.slice(0, 3).map((tech, idx) => (
+            <span 
+              key={idx}
+              className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md"
+            >
+              {tech}
+            </span>
+          ))}
+          {project.technologies.length > 3 && (
+            <span className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md">
+              +{project.technologies.length - 3}
+            </span>
+          )}
+        </div>
+
+        {/* Navigate to detail page */}
+        <Link
+          to={`/project/${projectSlug}`}
           className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-accent transition-all duration-300 hover:glow-primary mt-auto"
         >
-          <span>Gå till projekt</span>
-          <ExternalLink size={16} />
-        </a>
+          <span>Läs mer</span>
+          <ArrowRight size={16} />
+        </Link>
       </div>
     </article>
   );

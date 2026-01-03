@@ -1,0 +1,188 @@
+import { useParams, Link } from 'react-router-dom';
+import { ArrowLeft, ExternalLink, Github, CheckCircle, Lightbulb, AlertTriangle, BookOpen } from 'lucide-react';
+import { projects } from '@/data/projects';
+import { getProjectSlug } from '@/types/project';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+const ProjectPage = () => {
+  const { projectSlug } = useParams<{ projectSlug: string }>();
+  
+  const project = projects.find(p => getProjectSlug(p.name) === projectSlug);
+
+  if (!project) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-foreground mb-4">Projektet hittades inte</h1>
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors"
+            >
+              <ArrowLeft size={20} />
+              <span>Tillbaka till portfolio</span>
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      
+      <main className="flex-1">
+        {/* Hero Section with Project Image */}
+        <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.name}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          
+          {/* Back Button */}
+          <Link 
+            to="/#projects"
+            className="absolute top-6 left-6 inline-flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-sm rounded-lg text-foreground hover:bg-background transition-colors"
+          >
+            <ArrowLeft size={20} />
+            <span>Tillbaka</span>
+          </Link>
+
+          {/* Project Title Overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+            <div className="container mx-auto max-w-5xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+                {project.name}
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
+                {project.description}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Project Content */}
+        <section className="py-12 md:py-20">
+          <div className="container mx-auto max-w-5xl px-6">
+            
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-4 mb-12">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-accent transition-all duration-300 hover:glow-primary"
+              >
+                <ExternalLink size={20} />
+                <span>Live Demo</span>
+              </a>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-muted transition-all duration-300"
+              >
+                <Github size={20} />
+                <span>GitHub Repo</span>
+              </a>
+            </div>
+
+            {/* Technologies */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span className="text-primary text-sm">💻</span>
+                </span>
+                Teknologier
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Detailed Description */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                  <BookOpen size={16} className="text-primary" />
+                </span>
+                Om projektet
+              </h2>
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                {project.detailedDescription}
+              </p>
+            </div>
+
+            {/* Features */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                  <CheckCircle size={16} className="text-primary" />
+                </span>
+                Nyckelfunktioner
+              </h2>
+              <ul className="grid md:grid-cols-2 gap-3">
+                {project.features.map((feature, index) => (
+                  <li 
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-card rounded-lg border border-border"
+                  >
+                    <CheckCircle size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-card-foreground">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Challenges & Learnings Grid */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Challenges */}
+              <div className="p-6 bg-card rounded-xl border border-border">
+                <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
+                    <AlertTriangle size={16} className="text-orange-500" />
+                  </span>
+                  Utmaningar
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {project.challenges}
+                </p>
+              </div>
+
+              {/* Learnings */}
+              <div className="p-6 bg-card rounded-xl border border-border">
+                <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+                    <Lightbulb size={16} className="text-blue-500" />
+                  </span>
+                  Vad jag lärde mig
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {project.learnings}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default ProjectPage;
