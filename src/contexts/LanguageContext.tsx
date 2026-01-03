@@ -64,7 +64,7 @@ const translations = {
     "nav.about": "About",
     "nav.projects": "Projects",
     "nav.contact": "Contact",
-    "hero.badge": "Web Developer & Designer",
+    "hero.badge": "Fullstack Developer Web",
     "hero.name": "Johan Svensson",
     "hero.subtitle":
       "Creating modern and user-friendly web applications with a passion for clean code and design.",
