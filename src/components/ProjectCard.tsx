@@ -2,6 +2,8 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { Project } from '@/types/project';
 import { getProjectSlug } from '@/types/project';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { projectsSV } from '@/data/projects';
 
 interface ProjectCardProps {
   project: Project;
@@ -9,7 +11,11 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
-  const projectSlug = getProjectSlug(project.name);
+  const { t } = useLanguage();
+  
+  // Use Swedish project name for consistent slug routing
+  const svProject = projectsSV[index];
+  const projectSlug = svProject ? getProjectSlug(svProject.name) : getProjectSlug(project.name);
 
   return (
     <article
@@ -58,7 +64,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           to={`/project/${projectSlug}`}
           className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-accent transition-all duration-300 hover:glow-primary mt-auto"
         >
-          <span>Läs mer</span>
+          <span>{t('projects.viewProject')}</span>
           <ArrowRight size={16} />
         </Link>
       </div>
