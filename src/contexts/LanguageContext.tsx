@@ -32,7 +32,7 @@ const translations = {
       "Passionerad webbutvecklare med fokus på att skapa moderna och effektiva lösningar.",
     "about.webdev": "Webbutveckling",
     "about.webdev.desc":
-      "React, TypeScript, Python, och moderna webbteknologier.",
+      "Primärt Python och JavaScript, framåt kommer jag lära mig Java, TypeScript och React.",
     "about.design": "Design",
     "about.design.desc":
       "Skapar användarvänliga och estetiskt tilltalande gränssnitt.",
@@ -76,7 +76,7 @@ const translations = {
       "Passionate web developer focused on creating modern and efficient solutions.",
     "about.webdev": "Web Development",
     "about.webdev.desc":
-      "React, TypeScript, Python, and modern web technologies.",
+      "Primarily Python and JavaScript, moving forward I'll learn Java, TypeScript, and React.",
     "about.design": "Design",
     "about.design.desc":
       "Creating user-friendly and aesthetically pleasing interfaces.",
