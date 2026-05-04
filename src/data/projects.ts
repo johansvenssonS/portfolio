@@ -4,9 +4,42 @@ import yahtzeeImg from "@/assets/project-yahtzee.png";
 import tipsvannerImg from "@/assets/project-tipsvanner.png";
 import webshopImg from "@/assets/project-webshop.png";
 import webshopDbImg from "@/assets/project-webshopdberd.png";
+import bibliotekImg from "@/assets/project-swinglibrary.png";
 import type { Project } from "@/types/project";
 
 export const projectsSV: Project[] = [
+  {
+    name: "Biblioteksystem",
+    image: bibliotekImg,
+    description:
+      "Ett skrivbordsbaserat bibliotekshanteringssystem byggt i Java med Swing. Hanterar böcker, medlemmar och lån mot en molnbaserad MySQL-databas.",
+    link: "",
+    github: "https://github.com/johansvenssonS/javabibliotek",
+    detailedDescription:
+      "Ett Java-projekt med grafiskt användargränssnitt byggt i Swing. Systemet följer en trelagers-arkitektur med UI, service och repository-lager. Användare kan logga in, hantera böcker, medlemmar och lån samt se sina egna sidor. Databasen hostas på Aiven och applikationen är paketerad som en installerbar .exe-fil med jpackage.",
+    technologies: [
+      "Java",
+      "Swing",
+      "MySQL",
+      "JDBC",
+      "Aiven",
+      "OOP",
+      "jpackage",
+    ],
+    features: [
+      "Inloggningssystem med e-postvalidering mot databas",
+      "CRUD-operationer för böcker, författare och medlemmar",
+      "Lånehantering med förläng- och återlämningsfunktion",
+      "Personliga sidor för inloggad användare",
+      "Sök- och filterfunktioner för böcker och medlemmar",
+      "Installerbar .exe-fil med bundlad Java-runtime",
+      "Trelagers-arkitektur med UI, service och repository",
+    ],
+    challenges:
+      "Att designa en trelagers-arkitektur i Java och hantera databasanslutningar med JDBC. Att bygga ett intuitivt Swing-gränssnitt med korrekt layouthantering samt att paketera applikationen som en fristående .exe-fil med jpackage och WiX Toolset var de största tekniska utmaningarna.",
+    learnings:
+      "Fick praktisk erfarenhet av objektorienterad programmering med arv, polymorfism och abstraktion. Lärde mig JDBC och SQL-integrering i Java, Swing-layouthantering, transaktionshantering i databaser samt hur man distribuerar en Java-applikation som ett installerbart Windows-program.",
+},
   {
     name: "Tipsvänner",
     image: tipsvannerImg,
@@ -44,7 +77,7 @@ export const projectsSV: Project[] = [
     name: "TechStore Webbshop",
     image: webshopImg,
     description:
-      "En modern webbshop för hem- och elektronikprodukter byggd med vanilla JavaScript, HTML och CSS.",
+      "En webbshop för hem- och elektronikprodukter byggd med vanilla JavaScript, HTML och CSS.",
     link: "",
     github: "https://github.com/johansvenssonS/Webbshop-",
     detailedDescription:
@@ -183,6 +216,38 @@ export const projectsSV: Project[] = [
 ];
 
 export const projectsEN: Project[] = [
+  {
+    name: "Library Management System",
+    image: bibliotekImg,
+    description:
+      "A desktop-based library management system built in Java with Swing, managing books, members and loans against a cloud-hosted MySQL database.",
+    link: "",
+    github: "https://github.com/johansvenssonS/javabibliotek",
+    detailedDescription:
+      "A Java desktop application with a graphical user interface built in Swing. The system follows a three-layer architecture with UI, service and repository layers. Users can log in, manage books, members and loans, and view their own personal pages. The database is hosted on Aiven and the application is packaged as an installable .exe file using jpackage.",
+    technologies: [
+      "Java",
+      "Swing",
+      "MySQL",
+      "JDBC",
+      "Aiven",
+      "OOP",
+      "jpackage",
+    ],
+    features: [
+      "Login system with email validation against database",
+      "CRUD operations for books, authors and members",
+      "Loan management with extend and return functionality",
+      "Personal pages for logged-in users",
+      "Search and filter functionality for books and members",
+      "Installable .exe file with bundled Java runtime",
+      "Three-layer architecture with UI, service and repository",
+    ],
+    challenges:
+      "Designing a three-layer architecture in Java and managing database connections with JDBC. Building an intuitive Swing interface with correct layout management and packaging the application as a standalone .exe file using jpackage and WiX Toolset were the biggest technical challenges.",
+    learnings:
+      "Gained practical experience with object-oriented programming concepts such as inheritance, polymorphism and abstraction. Learned JDBC and SQL integration in Java, Swing layout management, database transaction handling, and how to distribute a Java application as an installable Windows program.",
+},
   {
     name: "Train Delays",
     image: tagForseningarImg,
