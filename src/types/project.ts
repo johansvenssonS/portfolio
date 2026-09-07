@@ -2,8 +2,8 @@ export interface Project {
   name: string;
   image: string;
   description: string;
-  link: string;
-  github: string;
+  link?: string;
+  github?: string;
   detailedDescription: string;
   technologies: string[];
   features: string[];

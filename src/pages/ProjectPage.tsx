@@ -101,24 +101,28 @@ const ProjectPage = () => {
           <div className="container mx-auto max-w-5xl px-6">
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4 mb-12">
-              <a
-                href={displayProject.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-accent transition-all duration-300 hover:glow-primary"
-              >
-                <ExternalLink size={20} />
-                <span>{t("projects.liveDemo")}</span>
-              </a>
-              <a
-                href={displayProject.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-muted transition-all duration-300"
-              >
-                <Github size={20} />
-                <span>{t("projects.github")}</span>
-              </a>
+              {displayProject.link && (
+                <a
+                  href={displayProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-accent transition-all duration-300 hover:glow-primary"
+                >
+                  <ExternalLink size={20} />
+                  <span>{t("projects.liveDemo")}</span>
+                </a>
+              )}
+              {displayProject.github && (
+                <a
+                  href={displayProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-muted transition-all duration-300"
+                >
+                  <Github size={20} />
+                  <span>{t("projects.github")}</span>
+                </a>
+              )}
             </div>
 
             {/* Technologies */}
