@@ -6,6 +6,7 @@ import yahtzeeImg from "@/assets/project-yahtzee.png";
 import tipsvannerImg from "@/assets/project-tipsvanner.png";
 import webshopImg from "@/assets/project-webshop.png";
 import webshopDbImg from "@/assets/project-webshopdberd.png";
+import bibliotekImg from "@/assets/project-swinglibrary.png";
 import type { Project } from "@/types/project";
 
 export const projectsSV: Project[] = [
